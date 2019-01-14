@@ -4,7 +4,7 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-
+use App\Company;
 class User extends \LaravelAdminPanel\Models\User
 {
     use Notifiable;
@@ -26,4 +26,11 @@ class User extends \LaravelAdminPanel\Models\User
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function company()
+    {
+        return $this->hasOne(Company::class);
+    }
+
+
 }

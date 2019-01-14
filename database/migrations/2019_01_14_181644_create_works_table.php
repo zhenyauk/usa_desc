@@ -16,6 +16,7 @@ class CreateWorksTable extends Migration
         Schema::create('works', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title')->nullable();
+            $table->string('slug')->unique();
             $table->integer('category_id')->unsigned()->nullable()->default(null);
             $table->foreign('category_id')->references('id')->on('categories')->onUpdate('cascade')->onDelete('set null');
             $table->integer('company_id')->nullable();
