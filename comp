@@ -1,0 +1,2 @@
+php artisan admin:install --with-dummy
+
