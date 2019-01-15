@@ -4,12 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use LaravelAdminPanel\Models\Page;
-
+use App\Staticpage;
 class PageController extends Controller
 {
+
+
     public function index()
     {
-       return view('pages.main');
+        $this->data['page'] = Staticpage::where('slug', 'home')->first();
+        return view('pages.main', $this->data);
     }
 
 

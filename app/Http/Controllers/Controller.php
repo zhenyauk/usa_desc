@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Menu;
 use Illuminate\Foundation\Bus\DispatchesJobs;
 use Illuminate\Routing\Controller as BaseController;
 use Illuminate\Foundation\Validation\ValidatesRequests;
@@ -11,7 +12,14 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    public $data = [];
+    protected $data = [
+        'meta_d' => '',
+        'meta_c' => ''
+    ];
+    public function __construct()
+    {
+        $this->menus();
+    }
 
     public function secure($name)
     {
@@ -19,5 +27,11 @@ class Controller extends BaseController
         $name = htmlentities($name, ENT_QUOTES, "UTF-8");
         $name = htmlspecialchars($name, ENT_QUOTES);
         return $name;
+    }
+
+    public function menus()
+    {
+        $this->data['menu']['resource'] = Menu::where('name', 'ResourcesMenu')->first();
+        $this->data['menu']['community'] = Menu::where('name', 'CommunityMenu')->first();
     }
 }
