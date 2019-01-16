@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\User;
 use App\Company;
 use LaravelAdminPanel\Models\Category;
+use App\Cat;
 
 class Work extends Model
 {
@@ -23,6 +24,8 @@ class Work extends Model
     public function categoryId(){
         return $this->hasOne(Category::class);
     }
+
+
 
 
 }

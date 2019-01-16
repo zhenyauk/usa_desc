@@ -23,6 +23,7 @@ class CreateCompaniesTable extends Migration
             $table->string('head')->nullable();
             $table->string('location')->nullable();
             $table->string('site')->nullable();
+            $table->string('statement')->nullable();
             $table->integer('active')->default(1);
             $table->timestamps();
         });

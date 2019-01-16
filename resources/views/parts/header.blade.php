@@ -13,7 +13,7 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,600" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Cabin+Sketch:400,700" rel="stylesheet">
-
+    <link rel="stylesheet" href="/assets/ea/easy-autocomplete.min.css">
     <link rel="stylesheet" href="/css/style.css">
 
     <title>@isset($title){{$title or ''}} | {{setting('site.title')}}@else {{setting('site.title')}} @endisset</title>
