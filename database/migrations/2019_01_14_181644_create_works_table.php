@@ -16,15 +16,14 @@ class CreateWorksTable extends Migration
         Schema::create('works', function (Blueprint $table) {
             $table->increments('id');
             $table->string('title')->nullable();
-            $table->string('slug')->unique();
-            $table->integer('category_id')->unsigned()->nullable()->default(null);
-            $table->foreign('category_id')->references('id')->on('categories')->onUpdate('cascade')->onDelete('set null');
+            $table->integer('category_id')->nullable();
             $table->integer('company_id')->nullable();
             $table->text('description')->nullable();
             $table->text('apply')->nullable();
             $table->integer('active')->default(1);
             $table->integer('important')->default(0);
             $table->integer('highlight')->default(0);
+            $table->integer('contract')->default(0);
             $table->dateTime('from')->nullable();
             $table->integer('job_posted')->default(0);
             $table->timestamps();

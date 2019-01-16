@@ -3,6 +3,11 @@
 @section('content')
 
     <main>
+            @isset($messages)
+                <div class="messages" style="color:red">
+                {{$messages}}
+                </div>
+            @endisset
 
         <div class="wrapper">
 
@@ -17,7 +22,7 @@
                 <div class="step1-cnt">
 
                     <h1>STEP 1: CREATE YOUR AD</h1>
-                    <form action="/job/add" method="post" id="step1-form">
+                    <form action="/job/add" method="post" id="step1-form" enctype="multipart/form-data">
                     <div class="step1-block">
                         <p>First, tell us about the position</p>
 
@@ -61,7 +66,7 @@
                                         <label for="type-1">Full-Time</label>
                                     </li>
                                     <li>
-                                        <input type="radio" name="contract" id="type-2" value="fulltime">
+                                        <input type="radio" name="contract" id="type-2" value="contract">
                                         <label for="type-2">Contract</label>
                                     </li>
                                 </ul>
@@ -91,7 +96,7 @@
 
                         <div class="step1-block-text-input" style="margin-bottom: 30px;">
                             <span>Name</span>
-                            <input type="text" name="user-name" placeholder="Enter your company or organization’s name." required>
+                            <input type="text" name="company" placeholder="Enter your company or organization’s name." required>
                         </div>
 
                         <div class="step1-block-text-input">
@@ -107,7 +112,7 @@
                         <div class="step1-block-logo">
                             <span>Logo</span>
                             <div>
-                                <input type="file" name="logo" id="">
+                                <input type="file" name="photo" id="logo-file">
                                 <p>
                                     Optional — Your company logo will appear at the top of your listing.<br>
                                     We'll resize automatically.
@@ -170,9 +175,14 @@
                         </div>
                         <button type="submit" id="submit-button" style="display: none">ok</button>
 
+                        <a href="javascript:void(0);" onclick="document.getElementById('step1-form').submit();">
+                            Continue to Step 2 to preview your ad
+                        </a>
+                        <!--
                         <a href="javascript:void(0);" id="clickme">
                             Continue to Step 2 to preview your ad
                         </a>
+                        -->
 
                     </div>
                         </form>
